@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.UserDao">
+
+
+
+    <!--<insert id="create" parameterType="Payment" useGeneratedKeys="true" keyColumn="id">
+        insert into payment(serial) values (${serial})
+    </insert>-->
+
+    <select id="getUser"  resultMap="result">
+        select * from juc
+    </select>
+
+    <resultMap id="result" type="com.test.entity.User">
+        <id column="id" property="id" jdbcType="BIGINT"></id>
+        <result column="name" property="name" jdbcType="VARCHAR"></result>
+        <result column="phone" property="phone" jdbcType="VARCHAR"></result>
+    </resultMap>
+
+
+
+
+
+</mapper>

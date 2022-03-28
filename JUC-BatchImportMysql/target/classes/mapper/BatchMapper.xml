@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.BatchOperateMysqlDao">
+
+
+
+    <insert id="batchInsert" parameterType="com.test.entity.GeneralTable">
+        insert into generateTable(
+        rowKey,
+        colValue,
+        colAttr,
+        colType,
+        colFrom
+        )values
+        <foreach collection="list" item="generaltable" separator=",">
+            (
+            #{generaltable.rowKey,jdbcType=BIGINT},
+            #{generaltable.colValue,jdbcType=VARCHAR},
+            #{generaltable.colAttr,jdbcType=VARCHAR},
+            #{generaltable.colType,jdbcType=VARCHAR},
+            #{generaltable.colFrom,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+
+
+
+</mapper>
